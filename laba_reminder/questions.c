@@ -7,7 +7,8 @@ int main() {
     printf("Size of char: %lu bytes\n", sizeof(char));
     printf("Size of double: %lu bytes\n", sizeof(double));
 
-    
+
+//  // Question 1.5
 
     return 0;
 }
