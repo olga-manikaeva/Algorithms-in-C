@@ -18,7 +18,7 @@ int main()
             A[i][j] = rand() % 100; // Random number from 0 to 99
         }
     }
-    
+    //
     printf(" Array A[%d][%d]\n",N,M);
     for (i = 0; i < N; i ++)
     {
