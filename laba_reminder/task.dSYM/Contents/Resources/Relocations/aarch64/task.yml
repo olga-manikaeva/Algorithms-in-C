@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/olga/vs_code/Algorithms-in-C/laba_reminder/task'
+relocations:     []
+...
