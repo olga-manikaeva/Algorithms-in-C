@@ -24,7 +24,7 @@ int main()
     srand(time(NULL));
     for(n_array = f_array; n_array < l_array; n_array++)
     {
-        *n_array = rand() % 101;
+        *n_array = (rand() % 201) - 100;
     }
 
     // Вивід елементів масиву
