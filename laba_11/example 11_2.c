@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main(int argc, const char * argv[])
+int main()
 {
     int N;
     printf("Enter the initial array size: ");
