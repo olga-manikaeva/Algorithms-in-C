@@ -51,7 +51,7 @@ int main()
     if (new_size > N) {
         for(n_array = Array + N; n_array < l_array; n_array++)
         {
-            *n_array = rand() % 101;
+            *n_array = (rand() % 201) - 100;
         }
     }
 
