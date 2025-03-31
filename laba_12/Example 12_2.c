@@ -14,15 +14,15 @@ int main()
     printf("b: ");
     scanf("%d", &b);
     printf("\n");
-    // массив указателей на функции
+    // масив вказівників на функцію
     void (*operations[4])(int, int) = {add, subtract, multiply,delitiply};
     
-    // получаем длину массива
+    // отримуємо довжину масиву
     int length = sizeof(operations)/sizeof(operations[0]);
     
     for(int i=0; i < length; i++)
     {
-        operations[i](a, b);    // вызов функции по указателю
+        operations[i](a, b);    // виклик функції через вказівник
     }
     
     return 0;
