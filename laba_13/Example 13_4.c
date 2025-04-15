@@ -1,36 +1,56 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
+#define NAME_N 100
+
+struct Student {
+    char Name[NAME_N];
+    int Rating;
+};
 
 int main() {
+    int count;
+    printf("Скільки студентів? ");
+    scanf("%d", &count);
+    getchar();
 
-    char address1 [] = "/Users/olga/Documents/xcode/lab_13/lab_13/lab_13/A1.txt";
-    char address2 [] = "/Users/olga/Documents/xcode/lab_13/lab_13/lab_13/A2.txt";
-    char en[300];
-    FILE *f1, *f2;
-
-    if((f1= fopen(address1, "r"))==NULL)
-    {
-        perror("Error occured while opening file");
-        return 1;
-    }
-    if((f2= fopen(address2, "w"))==NULL)
-    {
-        perror("Error occured while opening file");
+    struct Student *students = malloc(count * sizeof(struct Student));
+    if (students == NULL) {
+        perror("Помилка виділення пам'яті");
         return 1;
     }
 
-    // пока не дойдем до конца, считываем по 256 байт
-    while((fgets(en, 300, f1))!=NULL)
-    {
-        // записываем строку
-        fputs(en, f2);
-        printf("%s", en);
+    for (int i = 0; i < count; i++) {
+        printf("Введіть ПІБ студента %d: ", i + 1);
+        fgets(students[i].Name, NAME_N, stdin);
+        students[i].Name[strcspn(students[i].Name, "\n")] = '\0';
+
+        printf("Оцінка: ");
+        scanf("%d", &students[i].Rating);
+        getchar();
     }
 
-    fclose(f1);
-    fclose(f2);
+    FILE *fp = fopen("/Users/olga/Documents/laba_13/laba_13/rating_13_4.txt", "w");
+    if (fp == NULL) {
+        perror("Не вдалося відкрити файл");
+        free(students);
+        return 1;
+    }
+
+    fprintf(fp, "+----------------------------+--------+\n");
+    fprintf(fp, "|           ПІБ              | Рейтинг|\n");
+    fprintf(fp, "+----------------------------+--------+\n");
+
+    for (int i = 0; i < count; i++) {
+        fprintf(fp, "| %-26s | %6d |\n", students[i].Name, students[i].Rating);
+    }
+    fprintf(fp, "+----------------------------+--------+\n");
+
+    fclose(fp);
+    free(students);
+
+    printf("Дані успішно записані в файл!\n");
 
     return 0;
 }
-
-
