@@ -12,7 +12,12 @@ int main() {
         
         int j,i;
         FILE *fp; // вказівник на файл
-        fp = fopen("/Users/olga/Documents/xcode/lab_13/lab_13/lab_13/input.txt","r");
+        char Address [] = "/Users/olga/Documents/laba_13/laba_13/input_13_2.txt";
+        fp = fopen(Address,"r"); // Абсолютний шлях до файлу XCode
+        if (fp == NULL) {
+                perror("Не вдалося відкрити файл для читання");
+                return 1;
+        }
         
         int N = 0;
         
@@ -20,12 +25,18 @@ int main() {
         {
             N++;
         }
-        printf("k= %d \n",N);
+        printf("N = %d \n",N);
         
         int *A = (int*)malloc(N*M*sizeof(int));
         int *B = (int*)malloc(N*sizeof(int));
         
+        if (A == NULL || B == NULL) {
+                printf("Помилка виділення пам'яті.\n");
+                fclose(fp);
+                return 1;
+        }
         rewind(fp);
+        
         for(i=0; i<N; i++)
         {
             for(j=0; j<M; j++)
@@ -40,7 +51,7 @@ int main() {
             
         }
         
-        fp=fopen("/Users/olga/Documents/xcode/lab_13/lab_13/lab_13/output.txt","w");
+        fp=fopen("/Users/olga/Documents/laba_13/laba_13/output_13_2.txt","w");
         for(i=0; i<N; i++)
         {
             fprintf(fp,"%d\n",B[i]);
