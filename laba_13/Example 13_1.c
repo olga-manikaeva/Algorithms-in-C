@@ -13,7 +13,14 @@ const int N = 10;
 
     int i, A[N];
     FILE *fp; // Вказівник на файл
-    fp = fopen("/Users/olga/Documents/xcode/lab_13/lab_13/lab_13/input.txt","r");
+    //fp = fopen("input.txt","r"); // Файл в поточній директорії
+    //fp = fopen("C:\\Users\\Olga\\Documents\\xcode\\lab_13\\lab_13\\lab_13\\input.txt","r"); // Абсолютний шлях до файлу Windows
+    //fp = fopen("/Users/olga/Documents/laba_13/laba_13/input.txt","r"); // Абсолютний шлях до файлу XCode
+
+    char Address [] = "/Users/olga/Documents/laba_13/laba_13/input.txt";
+    fp = fopen(Address,"r"); // Абсолютний шлях до файлу XCode
+    
+    
     if(fp!=NULL)
     {
         printf("Файл input.txt успішно прочитано\n");
@@ -40,7 +47,7 @@ const int N = 10;
     {
         A[i]=A[i]*2;
     }
-    fp=fopen("/Users/olga/Documents/xcode/lab_13/lab_13/lab_13/output.txt","w");
+    fp=fopen("output.txt","w");
     for(i=0; i<N; i++)
     {
         fprintf(fp,"%d\n",A[i]);
