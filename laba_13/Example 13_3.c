@@ -10,8 +10,8 @@ int main()
     //SetConsoleOutputCP(1251);
 
     int i, A[N];
-    FILE *fp; // указатель на файл
-    fp = fopen("/Users/olga/Documents/laba_13/laba_13/input.txt","r");
+    FILE *fp; // вказівник на файл
+    fp = fopen("/Users/olga/Documents/laba_13/laba_13/input_13_3.txt","r");
 
     if(fp!=NULL)
     {
@@ -38,7 +38,7 @@ int main()
     int a;
     FILE *neparni, *parni;
     neparni = fopen("/Users/olga/Documents/laba_13/laba_13/neparni.txt","w");
-    parni = fopen("/Users/olga/Documents/laba_13/laba_13/parni.txt.txt","w");
+    parni = fopen("/Users/olga/Documents/laba_13/laba_13/parni.txt","w");
     rewind(fp);
 
     FILE *tmpf;
