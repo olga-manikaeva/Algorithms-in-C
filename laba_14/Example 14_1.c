@@ -15,7 +15,7 @@ void find(FILE *);       // пошук і зміна
 
 int main() {
     char c;
-    FILE * ptr;
+    FILE * ptr = NULL;
     while (1) {
         puts("\nMenu:");
         puts("1 - New file");
@@ -41,7 +41,7 @@ int main() {
 }
 
 void createFile(FILE * ptr) {
-    ptr = fopen("file1.dat", "wb");
+    ptr = fopen("/Users/olga/Documents/xcode/laba_14_1/laba_14_1/file.dat", "wb");
     if (!ptr) {
         perror("Cannot open file");
         return;
@@ -68,7 +68,7 @@ void createFile(FILE * ptr) {
 }
 
 void print(FILE * ptr) {
-    ptr = fopen("file1.dat", "rb");
+    ptr = fopen("/Users/olga/Documents/xcode/laba_14_1/laba_14_1/file.dat", "rb");
     if (!ptr) {
         perror("Cannot open file");
         return;
@@ -92,7 +92,7 @@ void print(FILE * ptr) {
 }
 
 void app(FILE * ptr) {
-    ptr = fopen("file1.dat", "ab");
+    ptr = fopen("/Users/olga/Documents/xcode/laba_14_1/laba_14_1/file.dat", "ab");
     if (!ptr) {
         perror("Cannot open file");
         return;
@@ -119,7 +119,7 @@ void app(FILE * ptr) {
 }
 
 void find(FILE * ptr) {
-    ptr = fopen("file1.dat", "rb+");
+    ptr = fopen("/Users/olga/Documents/xcode/laba_14_1/laba_14_1/file.dat", "rb+");
     if (!ptr) {
         perror("Cannot open file");
         return;
