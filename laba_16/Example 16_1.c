@@ -3,7 +3,7 @@
 #include <ncurses.h>   // <ncurses.h>, для Windows: <curses.h>
 #include <unistd.h>    // Для usleep()
 
-int main(int argc, const char * argv[]) {
+int main() {
     int N;
     WINDOW *windowInput, *windowOutput;
 
